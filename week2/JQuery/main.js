@@ -90,11 +90,3 @@ $(".box")
   .mouseleave(function () {
     $(".box").css("background-color", "#8e44ad");
   });
-
-/***
-   * 
-   * Exercise 4
-Given the following HTML and CSS:
-
-   * 
-   */
