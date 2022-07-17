@@ -1,4 +1,3 @@
-let n = 0;
 let posts = [
   {
     text: "First post!",
@@ -19,67 +18,65 @@ let posts = [
     ],
   },
 ];
+let n = 0;
+
 let postIdCounter;
 let commentIdCounter;
-postObject = [
-  {
-    text: "",
-    id: 0,
-    comennt: [{}],
-  },
-];
-const getPosts = function () {
-  return posts;
-};
+const tweeterModule = class {
+  getPosts = function () {
+    return posts;
+  };
 
-const addPost = function (post) {
-  let i = "p";
+  addPost = function (post) {
+    let postObject = [
+      {
+        text: "",
+        id: 0,
+        comennt: [{}],
+      },
+    ];
+    let i = "p";
 
-  let id = i + n;
-  postObject.text = post;
-  postObject["id"] = id;
+    let id = i + n;
+    postObject.text = post;
+    postObject["id"] = id;
 
-  posts.push(postObject);
-  n = n + 1;
-  postIdCounter = postIdCounter + 1;
+    posts.push(postObject);
+    n = n + 1;
+    postIdCounter = postIdCounter + 1;
+    //console.log(getPosts());
+  };
+
+  removePost = function (idPost) {
+    for (let i = 0; i < posts.length; i++) {
+      if (posts[i].id == idPost) {
+        posts.splice(i, 1);
+      }
+    }
+  };
+  //removePost("p1");
   //console.log(getPosts());
-};
-
-addPost("This is my own post!");
-
-const removePost = function (idPost) {
-  for (let i = 0; i < posts.length; i++) {
-    if (posts[i].id == idPost) {
-      posts.splice(i, 1);
+  addComment = function (comment, idPost) {
+    for (let i = 0; i < posts.length; i++) {
+      if (posts[i].id == idPost) {
+        let countOfcomment =
+          parseInt(
+            posts[i].comments[posts[i].comments.length - 1].id.slice(1, 2)
+          ) + 1;
+        this.idForNewPost = "c" + countOfcomment;
+        posts[i].comments.push({ id: this.idForNewPost, text: comment });
+      }
     }
-  }
-  console.log(getPosts());
-};
-//removePost("p1");
-//console.log(getPosts());
-
-const addComment = function (comment, idPost) {
-  for (let i = 0; i < posts.length; i++) {
-    if (posts[i].id == idPost) {
-      let countOfcomment =
-        parseInt(
-          posts[i].comments[posts[i].comments.length - 1].id.slice(1, 2)
-        ) + 1;
-      idForNewPost = "c" + countOfcomment;
-      posts[i].comments.push({ id: idForNewPost, text: comment });
-    }
-  }
-};
-addComment("Damn straight it is!", "p2");
-const removeComment = function (idPost, idComment) {
-  for (let i = 0; i < posts.length; i++) {
-    if (posts[i].id == idPost) {
-      for (let j = 0; j < posts[i].comments.length; j++) {
-        if (posts[i].comments[j].id == idComment) {
-          posts[i].comments.splice(j, 1);
+  };
+  removeComment = function (idPost, idComment) {
+    for (let i = 0; i < posts.length; i++) {
+      if (posts[i].id == idPost) {
+        for (let j = 0; j < posts[i].comments.length; j++) {
+          if (posts[i].comments[j].id == idComment) {
+            posts[i].comments.splice(j, 1);
+          }
         }
       }
     }
-  }
+  };
 };
-console.log(getPosts());
