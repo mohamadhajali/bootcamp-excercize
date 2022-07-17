@@ -15,22 +15,22 @@
   </head>
   <body>
    
-    <script id="first-template" type="text/x-handlebars-template">
+   <script id="first-template" type="text/x-handlebars-template">
       {{#each posts}}
       <div id="comments" class="comments">
-
         <p class ="com">{{text}}</p>
-        
-        <p>
-          {{comments}}
-        </p>
+        {{#each comments}}
+        <ul>
+         <li>{{text}}
+         </li> 
+        </ul>
+        {{/each}}
         <div id="addComment">
           <input id="commentInput" type="text" />
           <button  id = "addComment" class="addComment" >Add comment</button>
         </div>
         <button >delete comment</button>
       </div>
-
       {{/each}}
 
     </script>
@@ -49,3 +49,30 @@
 <script src="rander.js"></script>
 
 <script src="main.js"></script>
+<!--<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tweeter</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Balthazar"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="title">Tweeter</h1>
+      <input type="text" placeholder="What's on your mind?" id="input" />
+      <div id="post">Twit</div>
+      <p style="grid-area: s"></p>
+      <div id="posts"></div>
+    </div>
+    <script src="tweeterModule.js"></script>
+    <script src="rander.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>-->

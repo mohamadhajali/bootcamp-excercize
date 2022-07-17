@@ -21,7 +21,6 @@ $(".addComment").on("click", function () {
     if (post.text == po.text()) {
       console.log(post.id);
       tweeter.addComment(comm, post.id);
-
       rand.renderPost(tweeter.getPosts());
     }
   }
