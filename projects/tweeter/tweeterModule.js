@@ -28,13 +28,12 @@ const tweeterModule = class {
   };
 
   addPost = function (post) {
-    let postObject = [
-      {
-        text: "",
-        id: 0,
-        comennt: [{}],
-      },
-    ];
+    let postObject = {
+      text: "",
+      id: 0,
+      comments: [],
+    };
+
     let i = "p";
 
     let id = i + n;
@@ -57,12 +56,19 @@ const tweeterModule = class {
   //removePost("p1");
   //console.log(getPosts());
   addComment = function (comment, idPost) {
+    let countOfcomment;
     for (let i = 0; i < posts.length; i++) {
       if (posts[i].id == idPost) {
-        let countOfcomment =
-          parseInt(
-            posts[i].comments[posts[i].comments.length - 1].id.slice(1, 2)
-          ) + 1;
+        console.log(posts[i].comments.length);
+
+        if (posts[i].comments.length == 0) {
+          countOfcomment = 1;
+        } else {
+          countOfcomment =
+            parseInt(
+              posts[i].comments[posts[i].comments.length - 1].id.slice(1, 2)
+            ) + 1;
+        }
         this.idForNewPost = "c" + countOfcomment;
         posts[i].comments.push({ id: this.idForNewPost, text: comment });
       }

@@ -17,29 +17,30 @@
    
    <script id="first-template" type="text/x-handlebars-template">
       {{#each posts}}
-      <div id="comments" class="comments">
+      <div id="comments" >
         <p class ="com">{{text}}</p>
         {{#each comments}}
         <ul>
-         <li>{{text}}
+       <button>Delete comment  </button><li>{{text}}
          </li> 
         </ul>
         {{/each}}
         <div id="addComment">
           <input id="commentInput" type="text" />
-          <button  id = "addComment" class="addComment" >Add comment</button>
+          <button  id = "addCommentButton" >Add comment</button>
         </div>
         <button >delete comment</button>
       </div>
       {{/each}}
 
     </script>
+
     <h1 id="title">Tweeter</h1>
     <div class="tweet">
       <input id="TwitInput" type="text" />
       <button id="addTwit" onclick="savePost()">Twit</button>
     </div>
-    <div id="comments">
+    <div id="container">
     </div>
 
   </body>

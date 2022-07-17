@@ -8,18 +8,19 @@ savePost = function () {
   rand.renderPost(tweeter.getPosts());
 };
 
-$(".addComment").on("click", function () {
-  let doc = $(this).closest(".comments");
+$("body").on("click", "#addCommentButton", function () {
+  let posttext = $(this).closest("#comments").find("p").text();
+  console.log(posttext);
 
-  let po = doc.find(".com");
   const posts = tweeter.getPosts();
-  const comm = $("#commentInput").val();
 
+  //const comm = $("#commentInput").val();
+  let comm = $(this).closest("div").find("input").val();
   console.log(comm);
 
   for (let post of posts) {
-    if (post.text == po.text()) {
-      console.log(post.id);
+    if (post.text == posttext) {
+      console.log("aaaaaaaaaaaa");
       tweeter.addComment(comm, post.id);
       rand.renderPost(tweeter.getPosts());
     }
