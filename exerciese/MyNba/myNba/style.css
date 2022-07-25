@@ -1,0 +1,33 @@
+body {
+  background-color: antiquewhite;
+}
+
+input {
+  width: 80%;
+}
+button {
+  width: 15%;
+  background-color: green;
+  font-style: italic;
+  font-weight: bold;
+}
+#roster {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1vw;
+}
+img {
+  background-color: #bdc3c7;
+  box-shadow: 1px 1px 3px black;
+  box-sizing: border-box;
+}
+.player {
+  /* display: grid; */
+  background-color: orange;
+  text-align: center;
+  align-content: center;
+  font-family: "Courier New", Courier, monospace;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
