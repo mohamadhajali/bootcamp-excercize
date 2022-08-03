@@ -1,0 +1,14 @@
+#child1 {
+  background-color: blue;
+  width: 200px;
+  height: 200px;
+}
+.child {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+#child1 :hover {
+  color: red;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+</head>
+<body>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    crossorigin="anonymous"
+  ></script>
+  <script id="second-template" type="text/x-handlebars-template">
+    {{#each people}}
+      <div id="child1" class="child">
+        <p>{{people}}</p>
+      </div>
+    {{/each}}
+  </script>
+  <div id="special"></div>
+</body>
+<script src="main.js"></script>
