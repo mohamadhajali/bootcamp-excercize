@@ -1,25 +1,15 @@
 import "./App.css";
 import { Component } from "react";
-
+import Navbar from "./components/Navbar";
+import AboutUs from "./components/AboutUs";
 class App extends Component {
-  showComapany(name, revenue) {
+  render() {
     return (
-      <div id={name}>
-        <p>
-          {name} makes {revenue} every year
-        </p>
+      <div>
+        <Navbar />
+        <AboutUs />
       </div>
     );
-  }
-  render() {
-    let companies = [
-      { name: "Tesla", revenue: 140 },
-      { name: "Microsoft", revenue: 300 },
-      { name: "Google", revenue: 600 },
-    ];
-    return companies.map((c) => {
-      this.showComapany(c.name, c.revenue);
-    });
   }
 }
 
